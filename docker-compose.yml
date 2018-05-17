@@ -17,6 +17,7 @@ services:
     expose:
       - 7077
       - 9000
+      - 50090
 
   spark-worker1:
     build:

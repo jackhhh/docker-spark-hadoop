@@ -1,14 +1,14 @@
 #!/bin/bash
 
-export SPARK_MASTER_HOST=`hostname`
+export SPARK_MASTER_HOST=`spark-master`
 
-. "/spark/sbin/spark-config.sh"
+. "/usr/local/spark-2.3.0-bin-hadoop2.7/sbin/spark-config.sh"
 
-. "/spark/bin/load-spark-env.sh"
+. "/usr/local/spark-2.3.0-bin-hadoop2.7/bin/load-spark-env.sh"
 
 mkdir -p $SPARK_MASTER_LOG
 
-export SPARK_HOME=/spark
+export SPARK_HOME=/usr/local/spark-2.3.0-bin-hadoop2.7
 
-cd /spark/bin && /spark/sbin/../bin/spark-class org.apache.spark.deploy.master.Master \
+cd /usr/local/spark-2.3.0-bin-hadoop2.7/bin && /usr/local/spark-2.3.0-bin-hadoop2.7/sbin/../bin/spark-class org.apache.spark.deploy.master.Master \
     --ip $SPARK_MASTER_HOST --port $SPARK_MASTER_PORT --webui-port $SPARK_MASTER_WEBUI_PORT >> $SPARK_MASTER_LOG/spark-master.out

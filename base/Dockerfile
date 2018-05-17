@@ -71,3 +71,8 @@ RUN rm -rf spark-2.3.0-bin-hadoop2.7.tgz
 ENV SPARK_HOME /usr/local/spark-2.3.0-bin-hadoop2.7
 ENV PATH $SPARK_HOME/bin:$PATH
 ENV PATH $SPARK_HOME/sbin:$PATH
+
+RUN \
+  curl -LO "ftp://ftp.bitnp.net/Software/ML/spark/spark-env.sh" && \
+  mv spark-env.sh $SPARK_HOME/conf/spark-env.sh
+RUN sed -i 's/localhost/spark-master\nspark-worker1\nspark-worker2/g' $SPARK_HOME/conf/slaves

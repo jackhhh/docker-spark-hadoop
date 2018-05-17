@@ -11,8 +11,12 @@ services:
       - "50001:6066"
       - "50002:7077"   # SPARK_MASTER_PORT
       - "50003:8080"   # SPARK_MASTER_WEBUI_PORT
+    links:
+      - spark-worker1
+      - spark-worker2
     expose:
       - 7077
+      - 9000
 
   spark-worker1:
     build:

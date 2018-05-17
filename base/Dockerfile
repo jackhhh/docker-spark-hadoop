@@ -47,6 +47,9 @@ ENV YARN_HOME $HADOOP_HOME
 ENV HADOOP_CONF_DIR $HADOOP_HOME/etc/hadoop
 ENV YARN_CONF_DIR $HADOOP_HOME/etc/hadoop
 
+RUN sed -i 's/${JAVA_HOME}/\/usr\/local\/jdk1.8.0_162/g' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+RUN sed -i 's/localhost/spark-worker1\nspark-worker2/g' $HADOOP_HOME/etc/hadoop/slaves
+
 # install Spark
 RUN \
   curl -LO "ftp://ftp.bitnp.net/Software/ML/spark-2.3.0-bin-hadoop2.7.tgz" && \

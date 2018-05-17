@@ -18,6 +18,8 @@ services:
       - 7077
       - 9000
       - 50090
+      - 10020
+      - 19888
 
   spark-worker1:
     build:

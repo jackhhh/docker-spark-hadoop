@@ -49,6 +49,18 @@ ENV YARN_CONF_DIR $HADOOP_HOME/etc/hadoop
 
 RUN sed -i 's/${JAVA_HOME}/\/usr\/local\/jdk1.8.0_162/g' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 RUN sed -i 's/localhost/spark-worker1\nspark-worker2/g' $HADOOP_HOME/etc/hadoop/slaves
+RUN \
+  curl -LO "ftp://ftp.bitnp.net/Software/ML/hadoop/core-site.xml" && \
+  mv core-site.xml $HADOOP_HOME/etc/hadoop/core-site.xml
+RUN \
+  curl -LO "ftp://ftp.bitnp.net/Software/ML/hadoop/hdfs-site.xml" && \
+  mv hdfs-site.xml $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+RUN \
+  curl -LO "ftp://ftp.bitnp.net/Software/ML/hadoop/mapred-site.xml" && \
+  mv mapred-site.xml $HADOOP_HOME/etc/hadoop/mapred-site.xml
+RUN \
+  curl -LO "ftp://ftp.bitnp.net/Software/ML/hadoop/yarn-site.xml" && \
+  mv yarn-site.xml $HADOOP_HOME/etc/hadoop/yarn-site.xml
 
 # install Spark
 RUN \

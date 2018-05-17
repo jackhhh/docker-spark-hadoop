@@ -1,4 +1,4 @@
-FROM fanyijie/spark-hadoop:v3
+FROM jackhhh/docker-spark-hadoop:latest
 
 MAINTAINER jackhhh
 

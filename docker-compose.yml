@@ -8,9 +8,12 @@ services:
     environment:
       - raven=raven
     ports:
-      - "50001:6066"
-      - "50002:7077"   # SPARK_MASTER_PORT
-      - "50003:8080"   # SPARK_MASTER_WEBUI_PORT
+      - "6066:6066"
+      - "7077:7077"   # SPARK_MASTER_PORT
+      - "8080:8080"   # SPARK_MASTER_WEBUI_PORT
+      - "50070:50070"  # Hadoop Namenode Web
+      - "9000:9000"    # Hadoop Web
+      - "8088:8088"    # Hadoop ResourceMaster Web
     links:
       - spark-worker1
       - spark-worker2
@@ -26,7 +29,7 @@ services:
       context: ./worker
       dockerfile: Dockerfile
     ports:
-      - "50004:8081"
+      - "80001:8081"
     links:
       - spark-master
     environment:
@@ -37,7 +40,7 @@ services:
       context: ./worker
       dockerfile: Dockerfile
     ports:
-      - "50005:8081"
+      - "80002:8081"
     links:
       - spark-master
     environment:

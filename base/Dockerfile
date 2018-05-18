@@ -76,5 +76,5 @@ RUN \
   curl -LO "ftp://ftp.bitnp.net/Software/ML/spark/spark-env.sh" && \
   mv spark-env.sh $SPARK_HOME/conf/spark-env.sh && \
   chmod 755 $SPARK_HOME/conf/spark-env.sh
-RUN mv $SPARK_HOME/conf/slaves.template $SPARK_HOME/conf/slaves
+RUN cp $SPARK_HOME/conf/slaves.template $SPARK_HOME/conf/slaves
 RUN sed -i 's/localhost/spark-master\nspark-worker1\nspark-worker2/g' $SPARK_HOME/conf/slaves

@@ -14,9 +14,6 @@ services:
       - "50070:50070"  # Hadoop Namenode Web
       - "9000:9000"    # Hadoop Web
       - "8088:8088"    # Hadoop ResourceMaster Web
-    links:
-      - spark-worker1
-      - spark-worker2
     expose:
       - 7077
       - 9000

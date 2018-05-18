@@ -10,8 +10,8 @@ RUN mv CentOS-Base.repo /etc/yum.repos.d/
 RUN yum makecache
 
 # install system tool
-RUN yum install -y unzip epel-release
-RUN yum clean all
+# RUN yum install -y unzip epel-release
+# RUN yum clean all
 
 # install Java
 RUN \
@@ -76,4 +76,5 @@ RUN \
   curl -LO "ftp://ftp.bitnp.net/Software/ML/spark/spark-env.sh" && \
   mv spark-env.sh $SPARK_HOME/conf/spark-env.sh && \
   chmod 755 $SPARK_HOME/conf/spark-env.sh
+RUN mv $SPARK_HOME/conf/slaves.template $SPARK_HOME/conf/slaves
 RUN sed -i 's/localhost/spark-master\nspark-worker1\nspark-worker2/g' $SPARK_HOME/conf/slaves

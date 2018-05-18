@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# worker startup
+
+# hadoop startup
+
+. hadoop namenode -format
+. hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
+. hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
+. yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
+. yarn-daemon.sh --config $HADOOP_CONF_DIR start nodemanager
+
+
+# spark startup
+
 . "/usr/local/spark-2.3.0-bin-hadoop2.7/sbin/spark-config.sh"
 
 . "/usr/local/spark-2.3.0-bin-hadoop2.7/bin/load-spark-env.sh"

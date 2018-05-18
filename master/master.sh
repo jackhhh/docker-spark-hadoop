@@ -6,9 +6,9 @@
 
 . hadoop namenode -format
 . hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
-. hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
+. hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
 . yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
-. yarn-daemons.sh --config $HADOOP_CONF_DIR start nodemanager
+. yarn-daemon.sh --config $HADOOP_CONF_DIR start nodemanager
 . mr-jobhistory-daemon.sh --config $HADOOP_CONF_DIR start historyserver
 
 

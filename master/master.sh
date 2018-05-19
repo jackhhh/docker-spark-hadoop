@@ -5,11 +5,11 @@
 # hadoop startup
 
 . hadoop namenode -format
-. hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
-. hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
-. yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
-. yarn-daemon.sh --config $HADOOP_CONF_DIR start nodemanager
-. mr-jobhistory-daemon.sh --config $HADOOP_CONF_DIR start historyserver
+. hadoop-daemon.sh start namenode
+. hadoop-daemon.sh start datanode
+. yarn-daemon.sh start resourcemanager
+. yarn-daemon.sh start nodemanager
+. mr-jobhistory-daemon.sh start historyserver
 
 
 # spark startup

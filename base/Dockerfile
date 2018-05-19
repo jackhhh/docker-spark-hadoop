@@ -17,6 +17,7 @@ RUN yum clean all
 RUN \
   curl -LO "ftp://ftp.bitnp.net/Software/ML/jdk-8u162-linux-x64.tar.gz" && \
   tar zxf jdk-8u162-linux-x64.tar.gz
+RUN rm -f jdk-8u162-linux-x64.tar.gz
 ENV JAVA_HOME /usr/local/jdk1.8.0_162
 ENV JRE_HOME $JAVA_HOME/jre  
 ENV CLASSPATH .:$JAVA_HOME/lib:$JRE_HOME/lib
@@ -40,6 +41,7 @@ RUN rm -rf hadoop-2.7.5.tar.gz
 ENV HADOOP_HOME /usr/local/hadoop-2.7.5
 ENV PATH $HADOOP_HOME/bin:$PATH
 ENV PATH $HADOOP_HOME/sbin:$PATH
+ENV HADOOP_PREFIX $HADOOP_HOME
 ENV HADOOP_MAPRED_HOME $HADOOP_HOME
 ENV HADOOP_COMMON_HOME $HADOOP_HOME
 ENV HADOOP_HDFS_HOME $HADOOP_HOME
@@ -47,6 +49,8 @@ ENV YARN_HOME $HADOOP_HOME
 ENV HADOOP_CONF_DIR $HADOOP_HOME/etc/hadoop
 ENV YARN_CONF_DIR $HADOOP_HOME/etc/hadoop
 ENV HADOOP_LIBEXEC_DIR $HADOOP_HOME/libexec
+ENV HADOOP_COMMON_LIB_NATIVE_DIR $HADOOP_PREFIX/lib/native
+ENV HADOOP_OPTS "-Djava.library.path=$HADOOP_PREFIX/lib/native"
 
 RUN sed -i 's/${JAVA_HOME}/\/usr\/local\/jdk1.8.0_162/g' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 RUN sed -i 's/localhost/spark-worker1\nspark-worker2/g' $HADOOP_HOME/etc/hadoop/slaves

@@ -10,8 +10,8 @@ RUN mv CentOS-Base.repo /etc/yum.repos.d/
 RUN yum makecache
 
 # install system tool
-# RUN yum install -y unzip epel-release
-# RUN yum clean all
+RUN yum install -y which exec
+RUN yum clean all
 
 # install Java
 RUN \

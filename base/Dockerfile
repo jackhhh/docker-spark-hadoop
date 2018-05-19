@@ -46,6 +46,7 @@ ENV HADOOP_HDFS_HOME $HADOOP_HOME
 ENV YARN_HOME $HADOOP_HOME
 ENV HADOOP_CONF_DIR $HADOOP_HOME/etc/hadoop
 ENV YARN_CONF_DIR $HADOOP_HOME/etc/hadoop
+ENV HADOOP_LIBEXEC_DIR $HADOOP_HOME/libexec
 
 RUN sed -i 's/${JAVA_HOME}/\/usr\/local\/jdk1.8.0_162/g' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 RUN sed -i 's/localhost/spark-worker1\nspark-worker2/g' $HADOOP_HOME/etc/hadoop/slaves

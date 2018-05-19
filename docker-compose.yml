@@ -26,7 +26,7 @@ services:
       context: ./worker
       dockerfile: Dockerfile
     ports:
-      - "80001:8081"
+      - "8081:8081"
     links:
       - spark-master
     environment:
@@ -37,7 +37,7 @@ services:
       context: ./worker
       dockerfile: Dockerfile
     ports:
-      - "80002:8081"
+      - "8082:8081"
     links:
       - spark-master
     environment:

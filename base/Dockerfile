@@ -10,7 +10,7 @@ RUN mv CentOS-Base.repo /etc/yum.repos.d/
 RUN yum makecache
 
 # install system tool
-RUN yum install -y which exec
+RUN yum install -y which
 RUN yum clean all
 
 # install Java

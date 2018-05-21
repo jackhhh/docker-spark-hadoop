@@ -14,7 +14,7 @@
 
 # spark startup
 
-export SPARK_MASTER_HOST=`spark-master`
+export SPARK_MASTER_HOST=`hostname`
 
 . "/usr/local/spark-2.3.0-bin-hadoop2.7/sbin/spark-config.sh"
 

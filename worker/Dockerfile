@@ -1,4 +1,4 @@
-FROM jackhhh/docker-spark-hadoop:latest
+FROM registry.cn-beijing.aliyuncs.com/bitnp/docker-spark-hadoop:latest
 
 COPY worker.sh /
 
